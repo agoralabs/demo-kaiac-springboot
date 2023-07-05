@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+#kaiac
+app-kubernetes.yaml
+app-service.yaml
+appspec.yml
+docker-compose.yml
+app-service-lb.yaml
+appspec.sh
+Dockerfile

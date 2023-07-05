@@ -35,6 +35,7 @@ appenvsubstr(){
     | envsubst '$TF_VAR_ENV_JDK_REPO_TAG' > $p_destination
 }
 
+
 appenvsubstr devops/appspec.yml.template appspec.yml
 
 if [ "$TF_VAR_ENV_SCRIPT_MODE" == "CLOUDOCKER" ] 
