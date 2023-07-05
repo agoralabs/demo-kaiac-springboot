@@ -15,8 +15,17 @@ then
 
 else
 
+    PID=$(ps -ef | grep java | grep -v grep | awk '{ print $2 }')
+    if [ -z "$PID" ]
+    then
+        echo Application is already stopped
+    else
+        echo kill $PID
+        kill $PID
+    fi
+
     mvnw_file=/var/backend/$TF_VAR_ENV_APP_NAME/mvnw
     chmod +x $mvnw_file
-    $mvnw_file clean spring-boot:run -f /var/backend/$TF_VAR_ENV_APP_NAME/pom.xml
+    nohup $mvnw_file clean spring-boot:run -f /var/backend/$TF_VAR_ENV_APP_NAME/pom.xml &
 
 fi
