@@ -24,8 +24,9 @@ else
         kill $PID
     fi
 
-    mvnw_file=/var/backend/$TF_VAR_ENV_APP_NAME/mvnw
+    source_folder=/var/backend/$TF_VAR_ENV_APP_NAME
+    mvnw_file=$source_folder/mvnw
     chmod +x $mvnw_file
-    nohup $mvnw_file clean spring-boot:run -f /var/backend/$TF_VAR_ENV_APP_NAME/pom.xml &
+    nohup $mvnw_file clean spring-boot:run -f $source_folder/pom.xml >/dev/null 2>&1 &
 
 fi
