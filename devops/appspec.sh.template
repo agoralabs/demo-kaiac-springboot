@@ -15,8 +15,8 @@ then
 
 else
 
-    mvnw_file=$TF_VAR_ENV_LOCAL_BACKEND_SOURCE_FOLDER/mvnw
+    mvnw_file=./mvnw
     chmod +x $mvnw_file
-    $mvnw_file clean spring-boot:run -f $TF_VAR_ENV_LOCAL_BACKEND_SOURCE_FOLDER/pom.xml
+    $mvnw_file clean spring-boot:run -f pom.xml
 
 fi
