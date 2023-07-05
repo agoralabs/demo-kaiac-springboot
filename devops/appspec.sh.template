@@ -15,7 +15,7 @@ then
 
 else
 
-    mvnw_file=./mvnw
+    mvnw_file=/var/backend/$TF_VAR_ENV_APP_NAME/mvnw
     chmod +x $mvnw_file
     $mvnw_file clean spring-boot:run -f pom.xml
 
