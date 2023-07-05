@@ -15,4 +15,5 @@ demo:
   kaiac:
     openapi:
       dev-url: http://localhost:8080
+      local-url: http://localhost:8081
       prod-url: https://demo-kaiac-backend.agoralabs.org

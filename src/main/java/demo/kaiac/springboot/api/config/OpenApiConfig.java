@@ -18,6 +18,9 @@ public class OpenApiConfig {
     @Value("${demo.kaiac.openapi.dev-url}")
     private String devUrl;
 
+    @Value("${demo.kaiac.openapi.local-url}")
+    private String localUrl;
+
     @Value("${demo.kaiac.openapi.prod-url}")
     private String prodUrl;
 
@@ -27,6 +30,10 @@ public class OpenApiConfig {
     Server devServer = new Server();
     devServer.setUrl(devUrl);
     devServer.setDescription("Server URL in Development environment");
+
+    Server localServer = new Server();
+    localServer.setUrl(localUrl);
+    localServer.setDescription("Server URL in Local environment");
 
     Server prodServer = new Server();
     prodServer.setUrl(prodUrl);
@@ -45,8 +52,8 @@ public class OpenApiConfig {
         .contact(contact)
         .description("This API exposes endpoints to manage Kaiac Demo Spring Boot Backend.").termsOfService("https://www.agoralabs.org/terms")
         .license(mitLicense);
-                    
-        return new OpenAPI().info(info).servers(List.of(devServer, prodServer));
+
+        return new OpenAPI().info(info).servers(List.of(devServer, localServer, prodServer));
 
     }
 }
