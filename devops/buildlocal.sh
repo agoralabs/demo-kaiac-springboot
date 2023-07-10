@@ -21,8 +21,9 @@ done
 
 #For spring boot only
 mvnw_file=$source_folder/mvnw
-if [ -f "$mvnw_file" ]; then
-    chmod +x $mvnw_file
+if [ -f "$mvnw_file" ]
+then
+    chmod 777 $mvnw_file
     log_msg "Build spring boot app with $mvnw_file..."
     $mvnw_file clean install -DskipTests -f $source_folder/pom.xml
 fi
