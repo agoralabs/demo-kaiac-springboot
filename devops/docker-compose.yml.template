@@ -9,4 +9,4 @@ services:
         source: ${TF_VAR_ENV_LOCAL_BACKEND_SOURCE_FOLDER}/tmp
         target: /tmp
     ports:
-        - '${TF_VAR_ENV_LOCAL_BACKEND_PORT}:8080'
+        - '${TF_VAR_ENV_LOCAL_BACKEND_PORT}:8081'
