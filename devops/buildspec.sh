@@ -36,7 +36,6 @@ appenvsubstr(){
     | envsubst '$TF_VAR_ENV_APP_AWS_REGION_ECR' > $p_destination
 }
 
-
 appenvsubstr devops/appspec.yml.template appspec.yml
 appenvsubstr devops/appspec.sh.template devops/appspec.sh
 chmod 777 devops/appspec.sh
