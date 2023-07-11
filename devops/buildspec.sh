@@ -40,6 +40,9 @@ appenvsubstr devops/appspec.yml.template appspec.yml
 appenvsubstr devops/appspec.sh.template devops/appspec.sh
 chmod 777 devops/appspec.sh
 
+chmod +x ./mvnw
+./mvnw clean install -DskipTests
+
 if [ "$TF_VAR_ENV_SCRIPT_MODE" == "CLOUDOCKER" ] 
 then
 
@@ -61,13 +64,13 @@ then
     aws ecr get-login-password --region $TF_VAR_ENV_APP_AWS_REGION_ECR | docker login --username AWS --password-stdin $TF_VAR_ENV_APP_AWS_ACCOUNT_ID.dkr.ecr.$TF_VAR_ENV_APP_AWS_REGION_ECR.amazonaws.com
 
     echo "Building the Docker image..."
-    docker build -t $TF_VAR_ENV_APP_NAME:$TF_VAR_ENV_APP_BACKEND_NAMESPACE'_'$TF_VAR_ENV_APP_NAME .
+    docker build -t $TF_VAR_ENV_APP_NAME:${TF_VAR_ENV_APP_BACKEND_NAMESPACE}_${TF_VAR_ENV_APP_NAME} .
 
     echo "Create $TF_VAR_ENV_APP_NAME repository..."
     aws ecr describe-repositories --repository-names $TF_VAR_ENV_APP_NAME || aws ecr create-repository --repository-name $TF_VAR_ENV_APP_NAME
 
     echo "Tag your image with the Amazon ECR registry..."
-    docker tag $TF_VAR_ENV_APP_NAME:$TF_VAR_ENV_APP_BACKEND_NAMESPACE'_'$TF_VAR_ENV_APP_NAME $TF_VAR_ENV_APP_AWS_ACCOUNT_ID.dkr.ecr.$TF_VAR_ENV_APP_AWS_REGION_ECR.amazonaws.com/$TF_VAR_ENV_APP_NAME:$TF_VAR_ENV_APP_BACKEND_NAMESPACE'_'$TF_VAR_ENV_APP_NAME
+    docker tag $TF_VAR_ENV_APP_NAME:${TF_VAR_ENV_APP_BACKEND_NAMESPACE}_${TF_VAR_ENV_APP_NAME} $TF_VAR_ENV_APP_AWS_ACCOUNT_ID.dkr.ecr.$TF_VAR_ENV_APP_AWS_REGION_ECR.amazonaws.com/$TF_VAR_ENV_APP_NAME:$TF_VAR_ENV_APP_BACKEND_NAMESPACE'_'$TF_VAR_ENV_APP_NAME
 
     echo "Push the image to ecr..."
     docker push $TF_VAR_ENV_APP_AWS_ACCOUNT_ID.dkr.ecr.$TF_VAR_ENV_APP_AWS_REGION_ECR.amazonaws.com/$TF_VAR_ENV_APP_NAME:$TF_VAR_ENV_APP_BACKEND_NAMESPACE'_'$TF_VAR_ENV_APP_NAME
