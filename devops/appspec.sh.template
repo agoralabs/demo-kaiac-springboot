@@ -2,6 +2,8 @@
 
 SCRIPT_MODE="$TF_VAR_ENV_SCRIPT_MODE"
 
+source_folder=/var/backend/$TF_VAR_ENV_APP_NAME
+
 if [ "$SCRIPT_MODE" == "CLOUDOCKER" ]
 then
 
@@ -9,9 +11,9 @@ then
 
     aws ecr get-login-password --region $TF_VAR_ENV_APP_AWS_REGION_ECR | docker login --username AWS --password-stdin $TF_VAR_ENV_APP_AWS_ACCOUNT_ID.dkr.ecr.$TF_VAR_ENV_APP_AWS_REGION_ECR.amazonaws.com
 
-    docker build -t $TF_VAR_ENV_APP_NAME:$TF_VAR_ENV_APP_BACKEND_NAMESPACE'_'$TF_VAR_ENV_APP_NAME .
+    docker build -t $TF_VAR_ENV_APP_NAME:${TF_VAR_ENV_APP_BACKEND_NAMESPACE}_${TF_VAR_ENV_APP_NAME} $source_folder
 
-    docker compose -f ./docker-compose.yml up -d
+    docker compose -f $source_folder/docker-compose.yml up -d
 
 else
 
@@ -26,7 +28,6 @@ else
         kill $PID
     fi
 
-    source_folder=/var/backend/$TF_VAR_ENV_APP_NAME
     mvnw_file=$source_folder/mvnw
     chmod +x $mvnw_file
     nohup $mvnw_file clean spring-boot:run -f $source_folder/pom.xml >/dev/null 2>&1 &
