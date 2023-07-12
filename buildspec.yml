@@ -1,12 +1,10 @@
 version: 0.2
 
 phases:
-  pre_build:
-    commands:
-     - echo Nothing to do in the pre_build phase...
-     - yum install java-17-amazon-corretto-devel -y
-     - alternatives --set java /usr/lib/jvm/java-17-amazon-corretto.aarch64/bin/java
   install:
+    runtime-versions:
+      java: corretto17
+  build:
     commands:
       - chmod +x ./devops/buildspec.sh
       - ./devops/buildspec.sh
