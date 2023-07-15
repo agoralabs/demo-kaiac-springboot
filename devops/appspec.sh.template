@@ -2,12 +2,12 @@
 
 SCRIPT_MODE="$TF_VAR_ENV_APP_SCRIPT_MODE"
 
-source_folder=$TF_VAR_ENV_LOCAL_BACKEND_SOURCE_FOLDER
+source_folder=$TF_VAR_ENV_APP_BACKEND_LOCAL_SOURCE_FOLDER
 
 if [ "$SCRIPT_MODE" == "CLOUDOCKER" ]
 then
 
-    mkdir -p $TF_VAR_ENV_LOCAL_BACKEND_SOURCE_FOLDER/tmp
+    mkdir -p $TF_VAR_ENV_APP_BACKEND_LOCAL_SOURCE_FOLDER/tmp
 
     aws ecr get-login-password --region $TF_VAR_ENV_APP_AWS_REGION_ECR | docker login --username AWS --password-stdin $TF_VAR_ENV_APP_AWS_ACCOUNT_ID.dkr.ecr.$TF_VAR_ENV_APP_AWS_REGION_ECR.amazonaws.com
 
