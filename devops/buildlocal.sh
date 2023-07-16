@@ -19,6 +19,10 @@ do
     appenvsubstr $template $source_folder/$generated
 done
 
+#move generated application.yml
+
+cp $source_folder/application.yml $source_folder/src/main/resources/application.yml
+
 #For spring boot only
 mvnw_file=$source_folder/mvnw
 if [ -f "$mvnw_file" ]

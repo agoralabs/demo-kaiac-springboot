@@ -15,45 +15,31 @@ import io.swagger.v3.oas.models.servers.Server;
 @Configuration
 public class OpenApiConfig {
 
-    @Value("${demo.kaiac.openapi.dev-url}")
-    private String devUrl;
-
-    @Value("${demo.kaiac.openapi.local-url}")
-    private String localUrl;
-
-    @Value("${demo.kaiac.openapi.prod-url}")
-    private String prodUrl;
+    @Value("${demo.kaiac.openapi.app-url}")
+    private String appUrl;
 
     @Bean
     public OpenAPI usersMicroserviceOpenAPI() {
 
-    Server devServer = new Server();
-    devServer.setUrl(devUrl);
-    devServer.setDescription("Server URL in Development environment");
+        Server appServer = new Server();
+        appServer.setUrl(appUrl);
+        appServer.setDescription("Api URL");
 
-    Server localServer = new Server();
-    localServer.setUrl(localUrl);
-    localServer.setDescription("Server URL in Local environment");
+        Contact contact = new Contact();
+        contact.setEmail("agoralabs.contact@gmail.com");
+        contact.setName("AgoraLabs");
+        contact.setUrl("https://www.agoralabs.org");
 
-    Server prodServer = new Server();
-    prodServer.setUrl(prodUrl);
-    prodServer.setDescription("Server URL in Production environment");
+        License mitLicense = new License().name("MIT License").url("https://choosealicense.com/licenses/mit/");
 
-    Contact contact = new Contact();
-    contact.setEmail("agoralabs.contact@gmail.com");
-    contact.setName("AgoraLabs");
-    contact.setUrl("https://www.agoralabs.org");
+        Info info = new Info()
+            .title("Kaic Demo Spring Boot API")
+            .version("1.0")
+            .contact(contact)
+            .description("This API exposes endpoints to manage Kaiac Demo Spring Boot Backend.").termsOfService("https://www.agoralabs.org/terms")
+            .license(mitLicense);
 
-    License mitLicense = new License().name("MIT License").url("https://choosealicense.com/licenses/mit/");
-
-    Info info = new Info()
-        .title("Kaic Demo Spring Boot API")
-        .version("1.0")
-        .contact(contact)
-        .description("This API exposes endpoints to manage Kaiac Demo Spring Boot Backend.").termsOfService("https://www.agoralabs.org/terms")
-        .license(mitLicense);
-
-        return new OpenAPI().info(info).servers(List.of(devServer, localServer, prodServer));
+            return new OpenAPI().info(info).servers(List.of(appServer));
 
     }
 }

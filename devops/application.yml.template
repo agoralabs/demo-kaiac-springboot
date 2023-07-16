@@ -14,4 +14,4 @@ springdoc:
 demo:
   kaiac:
     openapi:
-      app-url: http://localhost:8081
+      app-url: $TF_VAR_ENV_APP_BACKEND_URL

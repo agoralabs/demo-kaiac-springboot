@@ -33,6 +33,7 @@ appenvsubstr(){
 
 appenvsubstr devops/appspec.yml.template appspec.yml
 appenvsubstr devops/appspec.sh.template devops/appspec.sh
+appenvsubstr devops/application.yml.template src/main/resources/application.yml
 chmod 777 devops/appspec.sh
 
 chmod +x ./mvnw
