@@ -14,4 +14,4 @@ springdoc:
 demo:
   kaiac:
     openapi:
-      app-url: $TF_VAR_ENV_APP_BACKEND_URL
+      app-url: $TF_VAR_ENV_APP_BE_URL
