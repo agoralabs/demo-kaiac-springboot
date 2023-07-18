@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
+import demo.kaiac.springboot.api.pojo;
+
 @Tag(name = "Api Demo Controller", description = "Demo management APIs")
 @RestController
 @RequestMapping("/api/v1")
@@ -20,16 +22,18 @@ public class ApiDemoController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @GetMapping("/products")
-    public List<String> getProducts() {
-        log.debug("Inside of getProducts() method ");
+    @GetMapping("/projects")
+    public List<String> getProjects() {
+        log.debug("Inside of getProjects() method ");
         List<String> productsList = new ArrayList<>();
-        productsList.add("Honey");
-        productsList.add("Almond");
+        productsList.add(new Project(1,'IMDB','Cathy Coulaly','1st June 2023','overdue'));
+        productsList.add(new Project(2,'Frontend','Joseph Future','20th June 2023','ongoing'));
+        productsList.add(new Project(3,'Backend','Charles Pika','10th June 2023','completed'));
+        productsList.add(new Project(4,'Database','Wesley Weezy','1st July 2023','ongoing'));
         return productsList;
     }
 
-    @PostMapping(value = "/products")
+    @PostMapping(value = "/project")
     public String createProduct() {
         log.debug("Inside of createProduct() method ");
 
