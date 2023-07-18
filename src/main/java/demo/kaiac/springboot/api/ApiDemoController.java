@@ -23,21 +23,21 @@ public class ApiDemoController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping("/projects")
-    public List<String> getProjects() {
+    public List<Project> getProjects() {
         log.debug("Inside of getProjects() method ");
-        List<String> productsList = new ArrayList<>();
-        productsList.add(new Project(1,'IMDB','Cathy Coulaly','1st June 2023','overdue'));
-        productsList.add(new Project(2,'Frontend','Joseph Future','20th June 2023','ongoing'));
-        productsList.add(new Project(3,'Backend','Charles Pika','10th June 2023','completed'));
-        productsList.add(new Project(4,'Database','Wesley Weezy','1st July 2023','ongoing'));
-        return productsList;
+        List<Project> projectList = new ArrayList<>();
+        projectList.add(new Project(1,"IMDB","Cathy Coulaly","1st June 2023","overdue"));
+        projectList.add(new Project(2,"Frontend","Joseph Future","20th June 2023","ongoing"));
+        projectList.add(new Project(3,"Backend","Charles Pika","10th June 2023","completed"));
+        projectList.add(new Project(4,"Database","Wesley Weezy","1st July 2023","ongoing"));
+        return projectList;
     }
 
     @PostMapping(value = "/project")
-    public String createProduct() {
+    public Project createProduct() {
         log.debug("Inside of createProduct() method ");
-
-        return "Product is saved successfully";
+        
+        return new Project(5,"New Project","Project is saved successfully","1st July 2023","ongoing");
     }
 
 }
