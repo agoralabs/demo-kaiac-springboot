@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-import demo.kaiac.springboot.api.pojo;
+import demo.kaiac.springboot.api.pojo.Project;
 
 @Tag(name = "Api Demo Controller", description = "Demo management APIs")
 @RestController
@@ -36,7 +36,7 @@ public class ApiDemoController {
     @PostMapping(value = "/project")
     public Project createProduct() {
         log.debug("Inside of createProduct() method ");
-        
+
         return new Project(5,"New Project","Project is saved successfully","1st July 2023","ongoing");
     }
 
