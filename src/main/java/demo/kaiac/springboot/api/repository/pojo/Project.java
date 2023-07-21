@@ -1,4 +1,4 @@
-package demo.kaiac.springboot.api.pojo;
+package demo.kaiac.springboot.api.repository.pojo;
 
 import java.util.*;
 import javax.persistence.*;
