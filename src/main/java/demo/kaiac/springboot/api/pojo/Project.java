@@ -15,7 +15,7 @@ public class Project {
     private int id;
     @Column(name = "task_name")
     private String title;
-    @Column(name = "user_id")
+    @Column(name = "user_id",insertable=false, updatable=false)
     private String name;
     @Column(name = "task_date")
     private String due;
