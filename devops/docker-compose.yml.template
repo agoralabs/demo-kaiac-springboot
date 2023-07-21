@@ -11,7 +11,7 @@ services:
     ports:
         - '${TF_VAR_ENV_APP_BE_LOCAL_PORT}:8081'
     networks:
-      - kaiac
+      - mysql_kaiac
 networks:
-  kaiac:
-    driver: bridge
+  mysql_kaiac:
+    external: true
