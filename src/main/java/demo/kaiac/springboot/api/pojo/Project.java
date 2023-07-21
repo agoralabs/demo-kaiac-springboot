@@ -3,6 +3,7 @@ package demo.kaiac.springboot.api.pojo;
 import java.util.*;
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "tasks")
 public class Project {
