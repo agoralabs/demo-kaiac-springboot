@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-import demo.kaiac.springboot.api.repository.pojo.Project;
+import demo.kaiac.springboot.api.pojo.Project;
 import demo.kaiac.springboot.api.repository.ProjectRepository;
 
 @Tag(name = "Api Demo Controller", description = "Demo management APIs")
