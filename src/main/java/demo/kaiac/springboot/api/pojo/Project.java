@@ -1,13 +1,23 @@
 package demo.kaiac.springboot.api.pojo;
 
 import java.util.*;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "tasks")
 public class Project {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "task_id")
     private int id;
+    @Column(name = "task_name")
     private String title;
+    @Column(name = "user_id")
     private String name;
+    @Column(name = "task_date")
     private String due;
+    @Column(name = "task_color")
     private String status;
 
 

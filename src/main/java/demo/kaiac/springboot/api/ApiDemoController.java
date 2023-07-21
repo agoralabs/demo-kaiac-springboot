@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import demo.kaiac.springboot.api.pojo.Project;
+import demo.kaiac.springboot.api.repository.ProjectRepository;
 
 @Tag(name = "Api Demo Controller", description = "Demo management APIs")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -23,6 +24,9 @@ import demo.kaiac.springboot.api.pojo.Project;
 public class ApiDemoController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private ProjectRepository projectRepository;
 
     @GetMapping("/projects")
     public List<Project> getProjects() {
@@ -40,6 +44,12 @@ public class ApiDemoController {
         log.debug("Inside of createProduct() method ");
 
         return new Project(5,"New Project","Project is saved successfully","1st July 2023","ongoing");
+    }
+
+    @GetMapping(path="/projects/all")
+    public @ResponseBody Iterable<Project> getAllUsers() {
+        // This returns a JSON or XML with the projects
+        return projectRepository.findAll();
     }
 
 }
