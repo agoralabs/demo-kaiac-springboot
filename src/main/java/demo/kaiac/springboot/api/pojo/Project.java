@@ -73,23 +73,4 @@ public class Project {
         this.status = status;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        Project project = (Project) o;
-        return Objects.equals(id, project.id) &&
-        Objects.equals(name, project.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
-    }
-
 }
