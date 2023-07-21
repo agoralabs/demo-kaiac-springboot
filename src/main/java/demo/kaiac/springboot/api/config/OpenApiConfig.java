@@ -15,7 +15,7 @@ import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.servers.Server;
 
 @Configuration
-@EntityScan("demo.kaiac.springboot.api.repository.pojo")
+@EntityScan("demo.kaiac.springboot.api.pojo")
 public class OpenApiConfig {
 
     @Value("${demo.kaiac.openapi.app-url}")
