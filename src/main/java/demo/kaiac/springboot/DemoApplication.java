@@ -5,8 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(scanBasePackages = "demo.kaiac.springboot.api")
-@EnableJpaRepositories("demo.kaiac.springboot.api.repository")
+@SpringBootApplication
 @EntityScan("demo.kaiac.springboot.api.pojo")
 public class DemoApplication {
 
