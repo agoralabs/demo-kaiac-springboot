@@ -1,8 +1,12 @@
 package demo.kaiac.springboot.api.pojo;
 
-import java.util.*;
-import javax.persistence.*;
-
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tasks")
@@ -71,6 +75,30 @@ public class Project {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Project project = (Project) o;
+        return Objects.equals(id, project.id) &&
+        Objects.equals(name, project.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
+    @Override
+    public String toString() {
+        return "Project [id=" + id + ", title=" + title + ", name=" + name + "]";
     }
 
 }
