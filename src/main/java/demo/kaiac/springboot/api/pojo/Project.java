@@ -21,7 +21,9 @@ public class Project {
     private String due;
     @Column(name = "task_color")
     private String status;
-
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private Member responsible;
 
     public Project() {
     }
@@ -72,6 +74,14 @@ public class Project {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Member getResponsible() {
+        return responsible;
+    }
+
+    public void setResponsible(Member status) {
+        this.responsible = responsible;
     }
 
     @Override
