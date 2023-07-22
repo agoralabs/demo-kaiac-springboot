@@ -20,6 +20,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import demo.kaiac.springboot.api.pojo.JobRole;
 import demo.kaiac.springboot.api.pojo.Project;
 import demo.kaiac.springboot.api.pojo.Member;
+import demo.kaiac.springboot.api.repository.JobRoleRepository;
 import demo.kaiac.springboot.api.repository.ProjectRepository;
 import demo.kaiac.springboot.api.repository.MemberRepository;
 
