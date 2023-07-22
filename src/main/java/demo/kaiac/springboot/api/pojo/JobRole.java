@@ -19,7 +19,7 @@ public class JobRole {
     public JobRole() {
     }
 
-    public JobRole(int id, String name {
+    public JobRole(int id, String name) {
         this.id = id;
         this.name = name;
     }
