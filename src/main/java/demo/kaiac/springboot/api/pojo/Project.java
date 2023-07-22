@@ -15,12 +15,12 @@ public class Project {
     private int id;
     @Column(name = "task_name")
     private String title;
-    @Column(name = "user_id",insertable=false, updatable=false)
-    private String name;
     @Column(name = "task_date")
     private String due;
     @Column(name = "task_color")
     private String status;
+    @Column(name = "task_description")
+    private String description;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private Member responsible;
@@ -28,12 +28,21 @@ public class Project {
     public Project() {
     }
 
-    public Project(int id, String title, String name, String due, String status) {
+    public Project(int id, String title, String due, String status, String description) {
         this.id = id;
         this.title = title;
-        this.name = name;
         this.due = due;
         this.status = status;
+        this.description = description;
+    }
+
+    public Project(int id, String title, String due, String status, String description, Member responsible) {
+        this.id = id;
+        this.title = title;
+        this.due = due;
+        this.status = status;
+        this.description = description;
+        this.responsible = responsible;
     }
     
     public int getId() {
@@ -52,14 +61,6 @@ public class Project {
         this.title = title;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDue() {
         return due;
     }
@@ -74,6 +75,14 @@ public class Project {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Member getResponsible() {
@@ -94,8 +103,8 @@ public class Project {
         }
 
         Project project = (Project) o;
-        return Objects.equals(id, project.id) &&
-        Objects.equals(name, project.name);
+        return Objects.equals(id, project.getId()) &&
+        Objects.equals(title, project.getTitle());
     }
 
     @Override
@@ -105,7 +114,7 @@ public class Project {
 
     @Override
     public String toString() {
-        return "Project [id=" + id + ", title=" + title + ", name=" + name + "]";
+        return "Project [id=" + id + ", title=" + title + ", status=" + status + "]";
     }
 
 }
