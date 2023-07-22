@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import demo.kaiac.springboot.api.pojo.Project;
+import demo.kaiac.springboot.api.pojo.Member;
 import demo.kaiac.springboot.api.repository.ProjectRepository;
 import demo.kaiac.springboot.api.repository.MemberRepository;
 
@@ -64,7 +65,7 @@ public class ApiDemoController {
     }
 
     @GetMapping(path="/users/all")
-    public @ResponseBody Iterable<Project> getAllUsers() {
+    public @ResponseBody Iterable<Member> getAllUsers() {
         // This returns a JSON or XML with the users
         return memberRepository.findAll();
     }
