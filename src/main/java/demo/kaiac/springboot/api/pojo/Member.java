@@ -19,16 +19,18 @@ public class Member {
     private String surname;
     @Column(name = "user_login")
     private String avatar;
-
+    @Column(name = "user_email")
+    private String email;
 
     public Member() {
     }
 
-    public Member(int id, String firstname, String surname, String avatar) {
+    public Member(int id, String firstname, String surname, String avatar, String email) {
         this.id = id;
         this.firstname = firstname;
         this.surname = surname;
         this.avatar = avatar;
+        this.email = email;
     }
     
     public int getId() {
@@ -61,6 +63,14 @@ public class Member {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

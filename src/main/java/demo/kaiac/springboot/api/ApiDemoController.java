@@ -39,13 +39,13 @@ public class ApiDemoController {
     public List<Project> getProjects() {
         log.debug("Inside of getProjects() method ");
         List<Project> projectList = new ArrayList<>();
-        Member responsible1 = new Member(1,"Cathy", "Coulaly", "/team-member-1.jpg");
+        Member responsible1 = new Member(1,"Cathy", "Coulaly", "/team-member-1.jpg", "cathy.coulaly@agoralabs.org");
         projectList.add(new Project(1,"IMDB","1st June 2023","overdue", "Lorem ipsum dolor sit amet consectetur adipisicing elit.", responsible1));
-        Member responsible2 = new Member(2,"Joseph", "Future", "/team-member-2.jpg");
+        Member responsible2 = new Member(2,"Joseph", "Future", "/team-member-2.jpg", "joseph.future@agoralabs.org");
         projectList.add(new Project(2,"Frontend","20th June 2023","ongoing", "Lorem ipsum dolor sit amet consectetur adipisicing elit.", responsible2));
-        Member responsible3 = new Member(3,"Charles", "Pika", "/team-member-3.jpg");
+        Member responsible3 = new Member(3,"Charles", "Pika", "/team-member-3.jpg", "dorine.michou@agoralabs.org");
         projectList.add(new Project(3,"Backend","10th June 2023","completed", "Lorem ipsum dolor sit amet consectetur adipisicing elit.", responsible3));
-        Member responsible4 = new Member(4,"Wesley", "Weezy", "/team-member-4.jpg");
+        Member responsible4 = new Member(4,"Wesley", "Weezy", "/team-member-4.jpg", "wesley.weezy@agoralabs.org");
         projectList.add(new Project(4,"Database","1st July 2023","ongoing", "Lorem ipsum dolor sit amet consectetur adipisicing elit.", responsible4));
         return projectList;
     }
