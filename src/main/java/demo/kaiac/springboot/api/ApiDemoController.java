@@ -19,6 +19,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import demo.kaiac.springboot.api.pojo.Project;
 import demo.kaiac.springboot.api.repository.ProjectRepository;
+import demo.kaiac.springboot.api.repository.MemberRepository;
 
 @Tag(name = "Api Demo Controller", description = "Demo management APIs")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -30,6 +31,9 @@ public class ApiDemoController {
 
     @Autowired
     private ProjectRepository projectRepository;
+
+    @Autowired
+    private MemberRepository memberRepository;
 
     @GetMapping("/projects")
     public List<Project> getProjects() {
@@ -54,9 +58,15 @@ public class ApiDemoController {
     }
 
     @GetMapping(path="/projects/all")
-    public @ResponseBody Iterable<Project> getAllUsers() {
+    public @ResponseBody Iterable<Project> getAllProjects() {
         // This returns a JSON or XML with the projects
         return projectRepository.findAll();
+    }
+
+    @GetMapping(path="/users/all")
+    public @ResponseBody Iterable<Project> getAllUsers() {
+        // This returns a JSON or XML with the users
+        return memberRepository.findAll();
     }
 
 }
