@@ -1,6 +1,6 @@
 package demo.kaiac.springboot.api.pojo;
 
-import java.util.Objects;
+import java.util.*;
 import jakarta.persistence.*;
 
 
@@ -17,10 +17,17 @@ public class Member {
     private String firstname;
     @Column(name = "user_surname")
     private String surname;
-    @Column(name = "user_login")
+    @Column(name = "user_avatar")
     private String avatar;
     @Column(name = "user_email")
     private String email;
+
+    @ManyToMany
+    @JoinTable(
+    name = "users_job_roles", 
+    joinColumns = @JoinColumn(name = "user_id"), 
+    inverseJoinColumns = @JoinColumn(name = "job_role_id"))
+    Set<JobRole> jobRoles;
 
     public Member() {
     }
@@ -71,6 +78,14 @@ public class Member {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getJobRoles() {
+        return jobRoles;
+    }
+
+    public void setJobRoles(Set<JobRole> jobRoles) {
+        this.jobRoles = jobRoles;
     }
 
     @Override
