@@ -1,7 +1,7 @@
 spring:
   datasource:
     driverClassName: "com.mysql.cj.jdbc.Driver"
-    url: "jdbc:mysql://$TF_VAR_ENV_APP_DB_HOST:$TF_VAR_ENV_APP_DB_PORT_EXPOSE/$TF_VAR_ENV_APP_DB_NAME"
+    url: "jdbc:mysql://$TF_VAR_ENV_APP_DB_HOST:$TF_VAR_ENV_APP_DB_PORT/$TF_VAR_ENV_APP_DB_NAME"
     username: "$TF_VAR_ENV_APP_DB_USERNAME"
     password: "$TF_VAR_ENV_APP_DB_PASSWORD"
     continueOnError: true

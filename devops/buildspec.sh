@@ -12,15 +12,13 @@ appenvsubstr(){
     | envsubst '$TF_VAR_ENV_APP_BE_LOCAL_SOURCE_FOLDER' \
     | envsubst '$TF_VAR_ENV_APP_BE_LOCAL_PORT' \
     | envsubst '$TF_VAR_ENV_APP_BE_URL' \
-    | envsubst '$TF_VAR_ENV_APP_DATABASE_HOST' \
-    | envsubst '$TF_VAR_ENV_APP_DATABASE_NAME' \
-    | envsubst '$TF_VAR_ENV_APP_DATABASE_USERNAME' \
-    | envsubst '$TF_VAR_ENV_APP_DATABASE_PASSWORD' \
-    | envsubst '$TF_VAR_ENV_APP_DATABASE_PORT' \
+    | envsubst '$TF_VAR_ENV_APP_DB_HOST' \
+    | envsubst '$TF_VAR_ENV_APP_DB_NAME' \
+    | envsubst '$TF_VAR_ENV_APP_DB_USERNAME' \
+    | envsubst '$TF_VAR_ENV_APP_DB_PASSWORD' \
+    | envsubst '$TF_VAR_ENV_APP_DB_PORT' \
     | envsubst '$TF_VAR_ENV_APP_GL_NAMESPACE' \
     | envsubst '$TF_VAR_ENV_APP_GL_AWS_ACCOUNT_ID' \
-    | envsubst '$TF_VAR_ENV_PHP_REPO_NAME' \
-    | envsubst '$TF_VAR_ENV_PHP_REPO_TAG_APACHE' \
     | envsubst '$TF_VAR_ENV_APP_GL_AWS_REGION' \
     | envsubst '$TF_VAR_ENV_APP_GL_SCRIPT_MODE' \
     | envsubst '$TF_VAR_ENV_APP_BE_EKS_CLUSTER_NAME' \
