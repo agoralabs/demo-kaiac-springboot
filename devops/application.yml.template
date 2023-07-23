@@ -1,39 +1,39 @@
+# spring:
+#   datasource:
+#     driverClassName: com.mysql.jdbc.Driver
+#     url: "jdbc:mysql://mysql:3306/parisdb"
+#     username: "admin"
+#     password: "ComplexPwd"
+#     continueOnError: true
+#     initialize: false
+#     initialSize: 0
+#     timeBetweenEvictionRunsMillis: 5000
+#     minEvictableIdleTimeMillis: 5000
+#     minIdle: 0
+
+#   jpa:
+#     show-sql: true
+#     hibernate:
+#       ddl-auto: none
+#       naming_strategy: org.hibernate.cfg.DefaultNamingStrategy
+#     properties:
+#       hibernate:   
+#         dialect: org.hibernate.dialect.MySQL5Dialect
+#         hbm2ddl:
+#           auto: none
+#         temp:
+#           use_jdbc_metadata_defaults: false
+
 spring:
-  datasource:
-    #driverClassName: com.mysql.jdbc.Driver
-    url: "jdbc:mysql://mysql:3306/parisdb"
-    username: "admin"
-    password: "ComplexPwd"
-    continueOnError: true
-    initialize: false
-    initialSize: 0
-    timeBetweenEvictionRunsMillis: 5000
-    minEvictableIdleTimeMillis: 5000
-    minIdle: 0
-
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: none
-      naming_strategy: org.hibernate.cfg.DefaultNamingStrategy
-    properties:
-      hibernate:   
-#        dialect: org.hibernate.dialect.MySQL5Dialect
-        hbm2ddl:
-          auto: none
-        temp:
-          use_jdbc_metadata_defaults: false
-
-#spring:
-#  jpa:
-#    hibernate:
-#      ddl-auto: "none"
-#    show-sql: true
-#  datasource:
-#    url: "jdbc:mysql://mysql:3306/parisdb"
-#    username: "admin"
-#    password: "ComplexPwd"
-#    driver-class-name: "com.mysql.cj.jdbc.Driver"
+ jpa:
+   hibernate:
+     ddl-auto: "none"
+   show-sql: true
+ datasource:
+   url: "jdbc:mysql://mysql:3306/parisdb"
+   username: "admin"
+   password: "ComplexPwd"
+   driver-class-name: "com.mysql.cj.jdbc.Driver"
 
 server:
   port : 8081
