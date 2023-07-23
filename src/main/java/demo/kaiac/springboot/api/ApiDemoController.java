@@ -83,19 +83,26 @@ public class ApiDemoController {
         catch(Exception e) {
             //  Block of code to handle errors
             List<Member> memberList = new ArrayList<>();
-            Set<JobRole> jobRoles1 = new HashSet<>().add(new JobRole(1, "Team Lead"));
+            Set<JobRole> jobRoles1 = new HashSet<>();
+            jobRoles1.add(new JobRole(1, "Team Lead"));
             memberList.add(new Member(1,"SB-Cathy", "Coulaly", "/team-member-1.jpg", "cathy.coulaly@agoralabs.org",jobRoles1));
-            Set<JobRole> jobRoles2 = new HashSet<>().add(new JobRole(2, "Frontend Developer"));
+            Set<JobRole> jobRoles2 = new HashSet<>();
+            jobRoles2.add(new JobRole(2, "Frontend Developer"));
             memberList.add(new Member(2,"SB-Joseph", "Future", "/team-member-2.jpg", "joseph.future@agoralabs.org",jobRoles2));
-            Set<JobRole> jobRoles3 = new HashSet<>().add(new JobRole(3, "Backend Developer"));
+            Set<JobRole> jobRoles3 = new HashSet<>();
+            jobRoles3.add(new JobRole(3, "Backend Developer"));
             memberList.add(new Member(3,"SB-Dorine", "Michou", "/team-member-3.jpg", "dorine.michou@agoralabs.org",jobRoles3));
-            Set<JobRole> jobRoles4 = new HashSet<>().add(new JobRole(5, "Full Stack Developer"));
+            Set<JobRole> jobRoles4 = new HashSet<>();
+            jobRoles4.add(new JobRole(5, "Full Stack Developer"));
             memberList.add(new Member(4,"SB-Wesley", "Weezy", "/team-member-4.jpg", "wesley.weezy@agoralabs.org",jobRoles4));
-            Set<JobRole> jobRoles5 = new HashSet<>().add(new JobRole(5, "Full Stack Developer"));
+            Set<JobRole> jobRoles5 = new HashSet<>();
+            jobRoles5.add(new JobRole(5, "Full Stack Developer"));
             memberList.add(new Member(5,"SB-Marie", "Jo", "/team-member-5.jpg", "marie.jo@agoralabs.org",jobRoles5));
-            Set<JobRole> jobRoles6 = new HashSet<>().add(new JobRole(6, "Sys Admin"));
+            Set<JobRole> jobRoles6 = new HashSet<>();
+            jobRoles6.add(new JobRole(6, "Sys Admin"));
             memberList.add(new Member(6,"SB-Charles", "Pika", "/team-member-6.jpg", "charles.pika@agoralabs.org",jobRoles6));
-            Set<JobRole> jobRoles7 = new HashSet<>().add(new JobRole(7, "Product Owner"));
+            Set<JobRole> jobRoles7 = new HashSet<>();
+            jobRoles7.add(new JobRole(7, "Product Owner"));
             memberList.add(new Member(7,"SB-Boris", "John", "/team-member-7.jpg", "boris.john@agoralabs.org",jobRoles7));
             return memberList;
         }
