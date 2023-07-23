@@ -40,7 +40,7 @@ public class Member {
         this.email = email;
     }
     
-    public Member(int id, String firstname, String surname, String avatar, String , Set<JobRole> jobRoles) {
+    public Member(int id, String firstname, String surname, String avatar, String email, Set<JobRole> jobRoles) {
         this.id = id;
         this.firstname = firstname;
         this.surname = surname;
