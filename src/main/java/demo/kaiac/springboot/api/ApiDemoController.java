@@ -83,7 +83,22 @@ public class ApiDemoController {
         }
         catch(Exception e) {
             //  Block of code to handle errors
-            return null;
+            List<Member> memberList = new ArrayList<>();
+            Set<JobRole> jobRoles1 = new HashSet<>().add(new JobRole(1, "Team Lead"));
+            memberList.add(new Member(1,"SB-Cathy", "Coulaly", "/team-member-1.jpg", "cathy.coulaly@agoralabs.org",jobRoles1));
+            Set<JobRole> jobRoles2 = new HashSet<>().add(new JobRole(2, "Frontend Developer"));
+            memberList.add(new Member(2,"SB-Joseph", "Future", "/team-member-2.jpg", "joseph.future@agoralabs.org",jobRoles2));
+            Set<JobRole> jobRoles3 = new HashSet<>().add(new JobRole(3, "Backend Developer"));
+            memberList.add(new Member(3,"SB-Dorine", "Michou", "/team-member-3.jpg", "dorine.michou@agoralabs.org",jobRoles3));
+            Set<JobRole> jobRoles4 = new HashSet<>().add(new JobRole(5, "Full Stack Developer"));
+            memberList.add(new Member(4,"SB-Wesley", "Weezy", "/team-member-4.jpg", "wesley.weezy@agoralabs.org",jobRoles4));
+            Set<JobRole> jobRoles5 = new HashSet<>().add(new JobRole(5, "Full Stack Developer"));
+            memberList.add(new Member(5,"SB-Marie", "Jo", "/team-member-5.jpg", "marie.jo@agoralabs.org",jobRoles5));
+            Set<JobRole> jobRoles6 = new HashSet<>().add(new JobRole(6, "Sys Admin"));
+            memberList.add(new Member(6,"SB-Charles", "Pika", "/team-member-6.jpg", "charles.pika@agoralabs.org",jobRoles6));
+            Set<JobRole> jobRoles7 = new HashSet<>().add(new JobRole(7, "Product Owner"));
+            memberList.add(new Member(7,"SB-Boris", "John", "/team-member-7.jpg", "boris.john@agoralabs.org",jobRoles7));
+            return memberList;
         }
 
     }
@@ -98,7 +113,15 @@ public class ApiDemoController {
         }
         catch(Exception e) {
             //  Block of code to handle errors
-            return null;
+            List<JobRole> jobRoleList = new ArrayList<>();
+            jobRoleList.add(new JobRole(1, "SB-Team Lead"));
+            jobRoleList.add(new JobRole(2, "SB-Frontend Developer"));
+            jobRoleList.add(new JobRole(3, "SB-Backend Developer"));
+            jobRoleList.add(new JobRole(4, "SB-Database Admin"));
+            jobRoleList.add(new JobRole(5, "SB-Full Stack Developer"));
+            jobRoleList.add(new JobRole(6, "SB-Sys Admin"));
+            jobRoleList.add(new JobRole(7, "SB-Product Owner"));
+            return jobRoleList;
         }
 
     }

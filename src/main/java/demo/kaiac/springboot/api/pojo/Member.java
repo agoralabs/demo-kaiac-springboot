@@ -40,6 +40,15 @@ public class Member {
         this.email = email;
     }
     
+    public Member(int id, String firstname, String surname, String avatar, String , Set<JobRole> jobRoles) {
+        this.id = id;
+        this.firstname = firstname;
+        this.surname = surname;
+        this.avatar = avatar;
+        this.email = email;
+        this.jobRoles = jobRoles;
+    }
+
     public int getId() {
         return id;
     }
