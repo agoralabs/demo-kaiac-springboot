@@ -1,9 +1,9 @@
 spring:
   datasource:
     driverClassName: "com.mysql.cj.jdbc.Driver"
-    url: "jdbc:mysql://mysql:3306/parisdb"
-    username: "admin"
-    password: "ComplexPwd"
+    url: "jdbc:mysql://$TF_VAR_ENV_APP_DB_HOST:$TF_VAR_ENV_APP_DB_PORT_EXPOSE/$TF_VAR_ENV_APP_DB_NAME"
+    username: "$TF_VAR_ENV_APP_DB_USERNAME"
+    password: "$TF_VAR_ENV_APP_DB_PASSWORD"
     continueOnError: true
     initialize: false
     initialSize: 0
@@ -23,17 +23,6 @@ spring:
           auto: none
         temp:
           use_jdbc_metadata_defaults: false
-
-# spring:
-#  jpa:
-#    hibernate:
-#      ddl-auto: "none"
-#    show-sql: true
-#  datasource:
-#    url: "jdbc:mysql://mysql:3306/parisdb"
-#    username: "admin"
-#    password: "ComplexPwd"
-#    driver-class-name: "com.mysql.cj.jdbc.Driver"
 
 server:
   port : 8081
