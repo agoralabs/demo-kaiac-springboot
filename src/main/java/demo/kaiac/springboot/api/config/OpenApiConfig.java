@@ -34,7 +34,7 @@ public class OpenApiConfig {
         License mitLicense = new License().name("MIT License").url("https://choosealicense.com/licenses/mit/");
 
         Info info = new Info()
-            .title("Kaic Demo Spring Boot API")
+            .title("Kaiac Demo Spring Boot API")
             .version("1.0")
             .contact(contact)
             .description("This API exposes endpoints to manage Kaiac Demo Spring Boot Backend.").termsOfService("https://www.agoralabs.org/terms")
