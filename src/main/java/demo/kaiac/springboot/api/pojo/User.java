@@ -148,11 +148,11 @@ public class User {
         this.updated_at = updated_at;
     }
 
-    public Set<JobRole> getJobRoles() {
+    public Set<JobRole> getJob_roles() {
         return job_roles;
     }
 
-    public void setJobRoles(Set<JobRole> job_roles) {
+    public void setJob_roles(Set<JobRole> job_roles) {
         this.job_roles = job_roles;
     }
 
