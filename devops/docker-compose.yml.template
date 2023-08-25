@@ -11,7 +11,8 @@ services:
     ports:
         - '${TF_VAR_ENV_APP_BE_LOCAL_PORT}:8081'
     networks:
-      - docker_kaiac
+      - kaiac
 networks:
-  docker_kaiac:
+  kaiac:
     external: true
+    name: docker_kaiac
