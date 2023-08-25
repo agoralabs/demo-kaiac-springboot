@@ -45,7 +45,7 @@ public class Task {
         this.updated_at = updated_at;
     }
 
-    public Task(int id, String name, String priority, String status, String description, String scheduled_at, String created_at, String updated_at, Member responsible) {
+    public Task(int id, String name, String priority, String status, String description, String scheduled_at, String created_at, String updated_at, User responsible) {
         this.id = id;
         this.name = name;
         this.priority = priority;
