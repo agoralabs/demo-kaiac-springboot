@@ -19,6 +19,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import demo.kaiac.springboot.api.pojo.JobRole;
 import demo.kaiac.springboot.api.pojo.Task;
 import demo.kaiac.springboot.api.pojo.User;
+import demo.kaiac.springboot.api.pojo.Response;
 import demo.kaiac.springboot.api.repository.JobRoleRepository;
 import demo.kaiac.springboot.api.repository.TaskRepository;
 import demo.kaiac.springboot.api.repository.UserRepository;
@@ -42,17 +43,22 @@ public class ApiDemoController {
 
 
     @GetMapping("/tasks")
-    public @ResponseBody Iterable<Task> getTasks() {
+    public @ResponseBody Response getTasks() {
         log.debug("Inside of getTasks() method ");
+
+        boolean status;
+        String message = "Tasks";
+        List<Task> taskList = new ArrayList<>();
 
         try {
             //  Block of code to try
             // This returns a JSON or XML with the projects
-            return taskRepository.findAll();
+            status = true;
+            taskList = taskRepository.findAll();
         }
         catch(Exception e) {
             //  Block of code to handle errors
-            List<Task> taskList = new ArrayList<>();
+            status = false;
             User responsible1 = new User(1, "Cathy", "Coulaly", "cathy.coulaly@agoralabs.org", "2023-08-25 20:10:10", "$2y$10$NBgiGMf8cQOoTjf5Xefz4OuI.Yabsc461/ArxpUL138IGnPSZtda6", "/team-member-1.jpg", null, "2023-08-25 20:10:10", "2023-08-25 20:10:10");
             taskList.add(new Task(1, "SB-IMDB", "2", "overdue", "Lorem ipsum dolor sit amet consectetur adipisicing elit", "2023-08-25 20:10:11", "2023-08-25 20:10:11", "2023-08-25 20:10:11", responsible1));
             
@@ -65,8 +71,9 @@ public class ApiDemoController {
             User responsible4 = new User(4, "Wesley", "Weezy", "wesley.weezy@agoralabs.org", "2023-08-25 20:10:10", "$2y$10$NBgiGMf8cQOoTjf5Xefz4OuI.Yabsc461/ArxpUL138IGnPSZtda6", "/team-member-4.jpg", null, "2023-08-25 20:10:10", "2023-08-25 20:10:10");
             taskList.add(new Task(4, "SB-Database", "2", "ongoing", "Lorem ipsum dolor sit amet consectetur adipisicing elit", "2023-08-25 20:10:11", "2023-08-25 20:10:11", "2023-08-25 20:10:11", responsible4));
             
-            return taskList;
         }
+
+        return new Response(status, message, taskList);
 
     }
 
