@@ -48,7 +48,7 @@ public class ApiDemoController {
 
         boolean status;
         String message = "Tasks";
-        List<Task> taskList = new ArrayList<>();
+        Iterable taskList = new ArrayList<>();
 
         try {
             //  Block of code to try

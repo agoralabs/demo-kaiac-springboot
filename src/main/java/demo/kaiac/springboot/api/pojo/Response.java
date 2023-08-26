@@ -1,28 +1,26 @@
 package demo.kaiac.springboot.api.pojo;
 
-import java.util.*;
-
 public class Response {
 
     private boolean status;
     private String message;
-    private List response;
+    private Iterable response;
     
 
     public Response() {
     }
 
-    public Response(boolean status, String message, List response) {
+    public Response(boolean status, String message, Iterable response) {
         this.status = status;
         this.message = message;
         this.response = response;
     }
 
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -34,11 +32,11 @@ public class Response {
         this.message = message;
     }
 
-    public String getResponse() {
+    public Iterable getResponse() {
         return response;
     }
 
-    public void setResponse(String response) {
+    public void setResponse(Iterable response) {
         this.response = response;
     }
 
