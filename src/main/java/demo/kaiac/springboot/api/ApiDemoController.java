@@ -124,7 +124,7 @@ public class ApiDemoController {
     }
 
     @GetMapping(path="/job_roles")
-    public @ResponseBody Iterable<JobRole> getAllJobRoles() {
+    public @ResponseBody Response getAllJobRoles() {
         log.debug("Inside of getAllJobRoles() method ");
 
         boolean status;
