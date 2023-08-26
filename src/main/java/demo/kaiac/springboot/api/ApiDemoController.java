@@ -55,7 +55,8 @@ public class ApiDemoController {
             //  Block of code to try
             // This returns a JSON or XML with the projects
             status = true;
-            taskList = Lists.newArrayList(taskRepository.findAll());
+            taskList = IterableUtils.toList(taskRepository.findAll());
+            
         }
         catch(Exception e) {
             //  Block of code to handle errors
