@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
-import org.apache.commons.collections4;
+import org.apache.commons.collections4.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
