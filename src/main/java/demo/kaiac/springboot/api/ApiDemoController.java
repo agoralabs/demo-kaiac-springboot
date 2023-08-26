@@ -48,13 +48,13 @@ public class ApiDemoController {
 
         boolean status;
         String message = "Tasks";
-        Iterable taskList = new ArrayList<>();
+        List<Task> taskList = new ArrayList<>();
 
         try {
             //  Block of code to try
             // This returns a JSON or XML with the projects
             status = true;
-            taskList = taskRepository.findAll();
+            taskList = Lists.newArrayList(taskRepository.findAll());
         }
         catch(Exception e) {
             //  Block of code to handle errors
