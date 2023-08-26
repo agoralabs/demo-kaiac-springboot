@@ -81,15 +81,21 @@ public class ApiDemoController {
     }
 
     @GetMapping(path="/users")
-    public @ResponseBody Iterable<User> getAllUsers() {
+    public @ResponseBody Response getAllUsers() {
         log.debug("Inside of getAllUsers() method ");
+
+        boolean status;
+        String message = "Users";
+        List<User> userList = new ArrayList<>();
+
         try {
             // This returns a JSON or XML with the users
-            return userRepository.findAll();
+            status = true;
+            userList = IterableUtils.toList(userRepository.findAll());
         }
         catch(Exception e) {
             //  Block of code to handle errors
-            List<User> userList = new ArrayList<>();
+            status = false;
             Set<JobRole> jobRoles1 = new HashSet<>();
             jobRoles1.add(new JobRole(1, "Team Lead", "2023-08-25 20:10:10", "2023-08-25 20:10:10"));
             userList.add(new User(1, "SB-Cathy", "Coulaly", "cathy.coulaly@agoralabs.org", "2023-08-25 20:10:10", "$2y$10$NBgiGMf8cQOoTjf5Xefz4OuI.Yabsc461/ArxpUL138IGnPSZtda6", "/team-member-1.jpg", null, "2023-08-25 20:10:10", "2023-08-25 20:10:10",jobRoles1));
@@ -111,23 +117,29 @@ public class ApiDemoController {
             Set<JobRole> jobRoles7 = new HashSet<>();
             jobRoles7.add(new JobRole(7, "Product Owner", "2023-08-25 20:10:10", "2023-08-25 20:10:10"));
             userList.add(new User(7, "SB-Boris", "John", "boris.john@agoralabs.org", "2023-08-25 20:10:10", "$2y$10$NBgiGMf8cQOoTjf5Xefz4OuI.Yabsc461/ArxpUL138IGnPSZtda6", "/team-member-7.jpg", null, "2023-08-25 20:10:10", "2023-08-25 20:10:10",jobRoles7));
-            
-            return userList;
+
         }
 
+        return new Response(status, message, userList);
     }
 
     @GetMapping(path="/job_roles")
     public @ResponseBody Iterable<JobRole> getAllJobRoles() {
         log.debug("Inside of getAllJobRoles() method ");
+
+        boolean status;
+        String message = "JobRoles";
+        List<JobRole> jobRoleList = new ArrayList<>();
+
         try {
             //  Block of code to try
             // This returns a JSON or XML with the job_roles
-            return jobRoleRepository.findAll();
+            status = true;
+            jobRoleList = IterableUtils.toList(jobRoleRepository.findAll());
         }
         catch(Exception e) {
             //  Block of code to handle errors
-            List<JobRole> jobRoleList = new ArrayList<>();
+            status = false;
             jobRoleList.add(new JobRole(1, "SB-Team Lead", "2023-08-25 20:10:10", "2023-08-25 20:10:10"));
             jobRoleList.add(new JobRole(2, "SB-Frontend Developer", "2023-08-25 20:10:10", "2023-08-25 20:10:10"));
             jobRoleList.add(new JobRole(3, "SB-Backend Developer", "2023-08-25 20:10:10", "2023-08-25 20:10:10"));
@@ -135,9 +147,9 @@ public class ApiDemoController {
             jobRoleList.add(new JobRole(5, "SB-Full Stack Developer", "2023-08-25 20:10:10", "2023-08-25 20:10:10"));
             jobRoleList.add(new JobRole(6, "SB-Sys Admin", "2023-08-25 20:10:10", "2023-08-25 20:10:10"));
             jobRoleList.add(new JobRole(7, "SB-Product Owner", "2023-08-25 20:10:10", "2023-08-25 20:10:10"));
-            return jobRoleList;
         }
 
+        return new Response(status, message, jobRoleList);
     }
 
 }
