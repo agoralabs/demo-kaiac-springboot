@@ -48,8 +48,8 @@ then
     echo "Generating Dockerfile..."
     appenvsubstr devops/Dockerfile.template Dockerfile
 
-    echo "Generating app-kubernetes.yaml..."
-    appenvsubstr devops/app-kubernetes.yaml.template app-kubernetes.yaml
+    echo "Generating app-deployment.yaml..."
+    appenvsubstr devops/app-deployment.yaml.template app-deployment.yaml
 
     echo "Generating app-service.yaml..."
     appenvsubstr devops/app-service.yaml.template app-service.yaml
@@ -73,14 +73,14 @@ then
     aws eks update-kubeconfig --region $TF_VAR_ENV_APP_GL_AWS_REGION --name $TF_VAR_ENV_APP_BE_EKS_CLUSTER_NAME
     
     cat /root/.kube/config
-    cat app-kubernetes.yaml
+    cat app-deployment.yaml
     cat app-service.yaml
 
-    echo "Trying kubectl apply -f app-kubernetes.yaml..."
-    kubectl apply --kubeconfig=/root/.kube/config -f app-kubernetes.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}
+    echo "Trying kubectl apply -f app-deployment.yaml..."
+    kubectl apply -f app-deployment.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}
     
     echo "Trying kubectl apply -f app-service.yaml..."
-    kubectl apply --kubeconfig=/root/.kube/config -f app-service.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}
+    kubectl apply -f app-service.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}
 
 fi
 
