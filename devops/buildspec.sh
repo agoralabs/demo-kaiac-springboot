@@ -72,14 +72,15 @@ then
     echo "Updating kubeconfig..."
     aws eks update-kubeconfig --region $TF_VAR_ENV_APP_GL_AWS_REGION --name $TF_VAR_ENV_APP_BE_EKS_CLUSTER_NAME
     
+    cat /root/.kube/config
     cat app-kubernetes.yaml
     cat app-service.yaml
 
     echo "Trying kubectl apply -f app-kubernetes.yaml..."
-    kubectl apply -f app-kubernetes.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}
+    kubectl apply --kubeconfig=/root/.kube/config -f app-kubernetes.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}
     
     echo "Trying kubectl apply -f app-service.yaml..."
-    kubectl apply -f app-service.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}
+    kubectl apply --kubeconfig=/root/.kube/config -f app-service.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}
 
 fi
 
