@@ -25,7 +25,7 @@ spring:
           use_jdbc_metadata_defaults: false
 
 server:
-  port : 8081
+  port : $TF_VAR_ENV_APP_BE_LOCAL_PORT
 
 
 springdoc:
