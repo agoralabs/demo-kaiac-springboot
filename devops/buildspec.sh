@@ -62,6 +62,8 @@ then
 
     echo "Create $TF_VAR_ENV_APP_GL_NAME repository..."
     aws ecr describe-repositories --repository-names $TF_VAR_ENV_APP_GL_NAME --region $TF_VAR_ENV_APP_GL_AWS_REGION_ECR || aws ecr create-repository --repository-name $TF_VAR_ENV_APP_GL_NAME --region $TF_VAR_ENV_APP_GL_AWS_REGION_ECR
+    aws ecr delete-repository --repository-name $docker_hub_repo --force
+    aws ecr create-repository --repository-name $TF_VAR_ENV_APP_GL_NAME --region $TF_VAR_ENV_APP_GL_AWS_REGION_ECR
 
     echo "Tag your image with the Amazon ECR registry..."
     docker tag $TF_VAR_ENV_APP_GL_NAME:${TF_VAR_ENV_APP_BE_NAMESPACE}_${TF_VAR_ENV_APP_GL_NAME} $TF_VAR_ENV_APP_GL_AWS_ACCOUNT_ID.dkr.ecr.$TF_VAR_ENV_APP_GL_AWS_REGION_ECR.amazonaws.com/$TF_VAR_ENV_APP_GL_NAME:$TF_VAR_ENV_APP_BE_NAMESPACE'_'$TF_VAR_ENV_APP_GL_NAME
