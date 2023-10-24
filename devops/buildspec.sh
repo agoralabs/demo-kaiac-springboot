@@ -76,10 +76,13 @@ then
     cat app-deployment.yaml
     cat app-service.yaml
 
-    echo "Trying kubectl apply -f app-deployment.yaml..."
+    echo "Affichage de la version..."
+    kubectl version
+
+    echo "Trying kubectl apply -f app-deployment.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}"
     kubectl apply -f app-deployment.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}
     
-    echo "Trying kubectl apply -f app-service.yaml..."
+    echo "Trying kubectl apply -f app-service.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}"
     kubectl apply -f app-service.yaml -n ${TF_VAR_ENV_APP_BE_KS8_NAMESPACE}
 
 fi
