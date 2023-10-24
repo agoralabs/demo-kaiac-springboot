@@ -10,7 +10,7 @@ metadata:
     # TODO: Fill in with the ARN of your certificate.
     service.beta.kubernetes.io/aws-load-balancer-ssl-cert: ${TF_VAR_ENV_APP_BE_SSL_CERT_ARN}
     # Only run SSL on the port named "https" below.
-    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
 spec:
   selector:
     app: ${TF_VAR_ENV_APP_BE_NAMESPACE}-${TF_VAR_ENV_APP_GL_NAME}
