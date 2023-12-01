@@ -10,8 +10,8 @@ appenvsubstr(){
     | envsubst '$TF_VAR_ENV_APP_GL_NAMESPACE' \
     | envsubst '$TF_VAR_ENV_APP_GL_NAME' \
     | envsubst '$TF_VAR_ENV_APP_GL_STAGE' \
-    | envsubst '$TF_VAR_ENV_APP_GL_REPO_PHP_NAME' \
-    | envsubst '$TF_VAR_ENV_APP_GL_REPO_PHP_TAG' \
+    | envsubst '$TF_VAR_ENV_APP_GL_REPO_JDK_NAME' \
+    | envsubst '$TF_VAR_ENV_APP_GL_REPO_JDK_TAG' \
     | envsubst '$TF_VAR_ENV_APP_GL_DOCKER_REPOSITORY' \
     | envsubst '$TF_VAR_ENV_APP_GL_AWS_REGION' \
     | envsubst '$TF_VAR_ENV_APP_BE_DOMAIN_NAME' \
